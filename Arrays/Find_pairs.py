@@ -22,7 +22,6 @@ def count_pairs(arr,k):
         return 0
     return len(arr)
 
-
 def find_pair(lst):
     temp = []
     total_sum = 0
