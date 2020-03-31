@@ -8,6 +8,5 @@ def find_triplets(lst,target):
                     s.add((lst[i],lst[j],lst[k]))
     return s
                     
-
 print(find_triplets([1,2,3,4,4,4,5,6],9))
         
