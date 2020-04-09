@@ -33,12 +33,14 @@ class Linked_list:
     def find_loop(self):
         d = {}
         cur_node = self.head
-        while cur_node:
+        ctr = 0
+        while cur_node:        
             if cur_node.next in d:
-                return True
+                return cur_node.next.data
             else:
-                d[cur_node.next] = 1
+                d[cur_node.next] = [cur_node.data,ctr]
             cur_node = cur_node.next
+            ctr +=1    
         return False
                 
     def display(self):
@@ -51,6 +53,10 @@ ll = Linked_list()
 ll.add(1)
 ll.add(2)
 ll.add(3)
-ll.create_loop(1,2)
+ll.add(4)
+ll.add(5)
+ll.add(6)
+ll.add(7)
+ll.create_loop(4,7)
 print(ll.find_loop())
 # ll.display()
