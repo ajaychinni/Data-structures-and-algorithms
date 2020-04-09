@@ -30,17 +30,25 @@ class Linked_list:
         # creating a loop between end and start 
         cur_node2.next = cur_node1
         
-    def find_loop(self):
-        d = {}
+    def find_indx(self,ptr):
         cur_node = self.head
         ctr = 0
-        while cur_node:        
-            if cur_node.next in d:
-                return d[cur_node.next]
-            else:
-                d[cur_node.next] = [ctr,cur_node.data]
+        while cur_node.data != ptr.data:
+            ctr+=1
             cur_node = cur_node.next
-            ctr +=1    
+        return ctr
+        
+    def find_loop(self):
+        cur_node = self.head
+        prev = None
+        while cur_node:        
+            if cur_node.data < 0 :
+                ctr = find_indx(prev.next)
+                return -cur_node.data,ctr
+            else:
+                cur_node.data = -cur_node.data
+            cur_node = cur_node.next
+            prev = cur_node   
         return False
                 
     def display(self):
